@@ -1,0 +1,40 @@
+samples:
+- name: 'data'
+  variations:
+  - name: nominal
+    tree: data16
+    data: true
+    glob: 'exported/data16/*.root'
+
+- name: 'wjets_mc16a'
+  variations:
+  - name: nominal
+    tree: wjets_mc16a_Nom
+    glob: 'exported/wjets_mc16a/*.root'
+    weight: 'xs_weight * weight'
+    lumi: 36207.66
+- name: 'zjets_mc16a'
+  variations:
+  - name: nominal
+    tree: zjets_mc16a_Nom
+    glob: 'exported/zjets_mc16a/*.root'
+    weight: 'xs_weight * weight'
+    lumi: 36207.66
+- name: 'ttbar_mc16a'
+  variations:
+  - name: nominal
+    tree: ttbar_mc16a_Nom
+    glob: 'exported/ttbar_mc16a/*.root'
+    weight: 'xs_weight * weight'
+    lumi: 36207.66
+
+regions:
+- name: regionA
+  binning: [-0.5,15.5,17]
+  filter: 'n_jet < 7 && n_mu > 0'
+  observable: 'n_jet'
+- name: regionB
+  binning: [-0.5,15.5,17]
+  filter: 'n_jet > 8 && n_mu > 0'
+  observable: 'n_jet'
+
